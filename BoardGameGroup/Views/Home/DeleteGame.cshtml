@@ -1,0 +1,12 @@
+﻿@model BoardGameGroup.Models.BoardgameModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure you want to delete @Model.BoardgameName?</h2>
+
+<form>
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Delete" formmethod="post" formaction="@Url.Action("DeleteConfirmation", "Home", new { boardgameID = Model.ID })" />
+</form>

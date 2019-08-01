@@ -1,0 +1,31 @@
+﻿@model BoardGameGroup.Models.GameDetailsViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h3>Name of the game: @Model.Boardgame.BoardgameName</h3>
+
+<p>
+    Players:
+    @if (Model.Boardgame.MinPlayers == Model.Boardgame.MaxPlayers)
+    {
+        @Model.Boardgame.MaxPlayers
+    }
+    else
+    {
+        @Model.Boardgame.MinPlayers;@:-@Model.Boardgame.MaxPlayers
+    }
+</p>
+
+
+<p>Age: @Model.Boardgame.MinAge+</p>
+
+    Last 10 displays: <br />
+@foreach (var display in Model.GameDisplaysList)
+{
+    @display.DisplayDate.ToString("dd.MM.yyyy HH:mm");
+    @:/
+    @display.Source.ToString();
+    <br />
+}
